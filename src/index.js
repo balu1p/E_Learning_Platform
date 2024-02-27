@@ -13,7 +13,15 @@ const port = process.env.PORT || 7070;
 app.use(express.json({limit: "20kb"}));
 app.use(express.urlencoded({extended: true, limit: "20kb"}));
 
+
+// Routing
+
+import registerRouter from './routes/user.route.js';
+
+app.use('/api/users', registerRouter);
+
+
+
 app.listen(port,()=>{
     console.log(`app listening on ${port}`);
 })
-
